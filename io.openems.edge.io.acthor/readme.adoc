@@ -1,0 +1,9 @@
+= AC-Thor Heating Element
+
+Implemented Natures:
+https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.io.acthor[Source Code icon:github[]]
+
+AC Thor has three heating elements, with a maximum power of 1350W each. If the power channel is set to
+**3000: One of the elements will be switched on with full power
+**6000: Two of the elements will be switched on with full power
+**9000: All three elements will be switched on with full power 
