@@ -129,13 +129,13 @@ public class AcThorImpl extends AbstractOpenemsModbusComponent implements AcThor
 		Optional<Boolean> out3 = this.getOut3WriteChannel().getNextWriteValue();
 		Integer power = 0;
 		if (out1.orElse(false)) {
-			power += config.powerStep();
+			power += this.config.powerStep();
 		}
 		if (out2.orElse(false)) {
-			power += config.powerStep();
+			power += this.config.powerStep();
 		}
 		if (out3.orElse(false)) {
-			power += config.powerStep();
+			power += this.config.powerStep();
 		}
 		return power;
 	}
@@ -203,8 +203,8 @@ public class AcThorImpl extends AbstractOpenemsModbusComponent implements AcThor
 								ElementToChannelConverter.SCALE_FACTOR_3),
 						m(AsymmetricMeter.ChannelId.CURRENT_L2, new UnsignedWordElement(1068),
 								ElementToChannelConverter.SCALE_FACTOR_2),
-						m(AcThor.ChannelId.METER_POWER, new SignedWordElement(1069)), new DummyRegisterElement(1070), // Control
-																														// type
+						m(AcThor.ChannelId.METER_POWER, new SignedWordElement(1069)), 
+						new DummyRegisterElement(1070), // Control type																												// type
 						m(AcThor.ChannelId.PMAX_ABS, new UnsignedWordElement(1071)),
 						m(AsymmetricMeter.ChannelId.VOLTAGE_L3, new UnsignedWordElement(1072),
 								ElementToChannelConverter.SCALE_FACTOR_3),
