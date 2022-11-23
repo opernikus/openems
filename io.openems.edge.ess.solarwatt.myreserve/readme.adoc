@@ -1,0 +1,9 @@
+= Solarwatt MyReserve
+
+implementation of the Solarwatt MyReserve storage system (read only, access via REST api)
+
+Implemented Natures::
+- SymmetricEss
+- AsymmetricEss
+
+https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.ess.solarwatt.myreserve[Source Code icon:github[]]
