@@ -1,0 +1,859 @@
+= Sennec Home V3
+
+implementation of the Sennec Home V3 storage system (read only, access via REST api)
+
+Implemented Natures::
+- SymmetricEss
+- AsymmetricEss
+- SinglePhaseEss
+
+NOTE:
+ -the sennec energy values are missing. so there is no metering for energy consumption/production
+
+
+
+
+
+
+Example Response:
+	{"STATISTIC":
+		{
+			"CURRENT_STATE":"u1_000F",
+			"LIVE_BAT_CHARGE":"fl_422C4DB2",
+			"LIVE_BAT_CHARGE_MASTER":"fl_422C4DB2",
+			"LIVE_BAT_DISCHARGE":"fl_4213CBED",
+			"LIVE_BAT_DISCHARGE_MASTER":"fl_4213CBED",
+			"LIVE_GRID_EXPORT":"fl_400B07C6",
+			"LIVE_GRID_IMPORT":"fl_4414DBF9",
+			"LIVE_HOUSE_CONS":"fl_441EF6A1",
+			"LIVE_PU_ENERGY":	
+				[
+					"fl_00000000",
+					"fl_00000000",
+					"fl_00000000",
+					"fl_00000000",
+					"fl_00000000",
+					"fl_00000000"
+				],
+			"LIVE_PV_GEN":"fl_41CB369D",
+			"LIVE_WB_ENERGY"
+				[
+					"u6_0000000000000000",
+					"u6_0000000000000000",
+					"u6_0000000000000000",
+					"u6_0000000000000000"
+				],
+			"MEASURE_TIME":"i3_5FD8A6AF",
+			"STAT_SUM_E_PU":		
+				[
+					"u6_0000000000000000",
+					"u6_0000000000000000",
+					"u6_0000000000000000",
+					"u6_0000000000000000",
+					"u6_0000000000000000",
+					"u6_0000000000000000"
+				]
+			},
+			
+			
+			
+			
+	"ENERGY":{
+		"CAPTESTMODULE":["fl_00000000","fl_00000000","fl_00000000","fl_00000000"],
+		"GUI_BAT_DATA_COLLECTED":"u8_01",
+		"GUI_BAT_DATA_CURRENT":"fl_BDB851EC",
+		"GUI_BAT_DATA_FUEL_CHARGE":"fl_00000000",
+		"GUI_BAT_DATA_POWER":"fl_C0888606",
+		"GUI_BAT_DATA_VOLTAGE":"fl_423D9DB2",
+		"GUI_BOOSTING_INFO":"u8_00",
+		"GUI_CAP_TEST_STATE":"u8_00",
+		"GUI_CHARGING_INFO":"u8_00",
+		"GUI_GRID_POW":"fl_43A7D47B",
+		"GUI_HOUSE_POW":"fl_43ED4E62",
+		"GUI_INIT_CHARGE_START":"u8_00",
+		"GUI_INIT_CHARGE_STOP":"u8_00",
+		"GUI_INVERTER_POWER":"fl_4306AF9E",
+		"GUI_TEST_CHARGE_STAT":"u8_00",
+		"GUI_TEST_DISCHARGE_STAT":"u8_00",
+		"INIT_CHARGE_ACK":"u8_00",
+		"INIT_CHARGE_DIFF_VOLTAGE":"fl_00000000",
+		"INIT_CHARGE_MAX_CURRENT":"fl_00000000",
+		"INIT_CHARGE_MAX_VOLTAGE":"fl_00000000",
+		"INIT_CHARGE_MIN_VOLTAGE":"fl_00000000",
+		"INIT_CHARGE_RERUN":"u8_00",
+		"INIT_CHARGE_RUNNING":"u8_00",
+		"INIT_CHARGE_STATE":"u8_00",
+		"INIT_CHARGE_TIMER":"u6_0000000000000000",
+		"INIT_DISCHARGE_MAX_CURRENT":"fl_00000000",
+		"LI_STORAGE_MODE_RUNNING":"u8_00",
+		"LI_STORAGE_MODE_START":"u8_00",
+		"LI_STORAGE_MODE_STOP":"u8_00",
+		"OFFPEAK_DURATION":"u1_0000",
+		"OFFPEAK_POWER":"fl_00000000",
+		"OFFPEAK_RUNNING":"u8_00",
+		"OFFPEAK_TARGET":"u8_64",
+		"SAFE_CHARGE_FORCE":"u8_00",
+		"SAFE_CHARGE_PROHIBIT":"u8_00",
+		"SAFE_CHARGE_RUNNING":"u8_00",
+		"STAT_HOURS_OF_OPERATION":"u3_000002A4",
+		"STAT_LIMITED_NET_SKEW":"u8_00",
+		"STAT_STATE":"u8_0F"
+		,"STAT_STATE_DECODE":"u8_0F"
+		,"ZERO_EXPORT":"u8_01"}
+		,"FEATURES":{"CAR":"u8_00"
+		,"CLOUDREADY":"u8_01"
+		,"ECOGRIDREADY":"u8_01"
+		,"HEAT":"u8_00"
+		,"ISLAND":"u8_01"
+		,"ISLAND_PRO":"u8_00"
+		,"PEAKSHAVING":"u8_00"
+		,"SGREADY":"u8_00"
+		,"SHKW":"u8_00"
+		,"SOCKETS":"u8_00"}
+		,"LOG":{"LOG_IN_BUTT":"u8_00"
+		,"LOG_OUT_BUTT":"u8_00"
+		,"PASSWORD":"st_"
+		,"USERNAME":"st_"
+		,"USER_LEVEL":"u8_00"
+	}
+	
+	
+	
+	
+	,"SYS_UPDATE":{
+		"FSM_STATE":"u8_01"
+		,"MISC":["u8_00"
+			,"u8_00"
+			,"u8_00"
+			,"u8_00"
+			,"u8_00"
+			,"u8_00"]
+		,"NPU_IMAGE_VERSION":"u1_07DB"
+		,"NPU_VER":"u1_0009"
+		,"UPDATE_AVAILABLE":"u8_00"
+		,"USER_REBOOT_DEVICE":"u8_00"
+		,"USER_REQ_UPDATE":"u8_00"
+	}
+	
+	
+	
+	
+	,"WIZARD":{
+		"APPLICATION_HASH":"st_67c0d91fb42ba2d7814007d7e4273d14daaec989"
+		,"APPLICATION_VERSION":"st_0804"
+		,"BOOT":"u8_01"
+		,"CHARGE_PRIO":"u8_00"
+		,"CONFIG_CHECKSUM":"u1_7E95"
+		,"CONFIG_LOADED":"u8_01"
+		,"CONFIG_MODIFIED_BY_USER":"u8_00"
+		,"CONFIG_WRITE":"u8_00"
+		,"DEVICE_BATTERY_TYPE":"u8_04"
+		,"DEVICE_INVERTER_TYPE":"u8_A0"
+		,"DEVICE_INV_ENABLED":["u8_01"
+			,"u8_00"
+			,"u8_00"
+			,"u8_00"
+			,"u8_00"
+			,"u8_00"]
+		,"DEVICE_INV_PHASES_ARR":["u8_04"
+			,"u8_04"
+			,"u8_04"
+			,"u8_04"
+			,"u8_04"
+			,"u8_04"]
+		,"DEVICE_INV_SLAVE_ADRESS":["u8_03"
+			,"u8_04"
+			,"u8_05"
+			,"u8_06"
+			,"u8_07"
+			,"u8_08"]
+		,"DEVICE_PM_GRID_ENABLED":"u8_01"
+		,"DEVICE_PM_HOUSE_ENABLED":"u8_00"
+		,"DEVICE_PM_TYPE":"u8_01"
+		,"FEATURECODE_ENTERED":"u8_00"
+		,"FIRMWARE_VERSION":"st_954"
+		,"GENERATION_METER_SN":"u3_00000000"
+		,"GRID_CONNECTION_TYPE":"u8_02"
+		,"GUI_LANG":"u8_00"
+		,"HEATPUMP_METER_SN":"u3_00000000"
+		,"HEAT_CONN_TYPE":"u8_02"
+		,"INSULATION_RESISTANCE":"i3_000003E8"
+		,"INTERFACE_VERSION":"st_0953"
+		,"MAC_ADDRESS_BYTES":["u8_14"
+			,"u8_1F"
+			,"u8_BA"
+			,"u8_20"
+			,"u8_78"
+			,"u8_9F"]
+		,"MASTER_SLAVE_ADDRESSES":["u8_00"
+			,"u8_00"
+			,"u8_00"
+			,"u8_00"
+			,"u8_00"
+			,"u8_00"]
+		,"MASTER_SLAVE_MODE":"u8_00"
+		,"PS_ENABLE":"u8_00"
+		,"PS_HOUR":"u8_00"
+		,"PS_MINUTE":"u8_00"
+		,"PS_RESERVOIR":"u8_00"
+		,"PV_CONFIG":["u8_01"
+			,"u8_01"]
+		,"PWRCFG_PEAK_PV_POWER":"fl_45D48000"
+		,"SENEC_METER_SN":"u3_00000000"
+		,"SETUP_ABS_POWER":"u3_00000000"
+		,"SETUP_AGBS_ACCEPTED":"u8_00"
+		,"SETUP_HV_PHASE":"u8_00"
+		,"SETUP_NUMBER_WALLBOXES":"u8_00"
+		,"SETUP_PM_GRID_ADR":"u8_01"
+		,"SETUP_PM_HOUSE_ADR":"u8_02"
+		,"SETUP_POWER_RULE":"u8_00"
+		,"SETUP_PV_INV_IP0":"u3_00000000"
+		,"SETUP_PV_INV_IP1":"u3_00000000"
+		,"SETUP_PV_INV_IP2":"u3_00000000"
+		,"SETUP_PV_INV_IP3":"u3_00000000"
+		,"SETUP_PV_INV_IP4":"u3_00000000"
+		,"SETUP_PV_INV_IP5":"u3_00000000"
+		,"SETUP_RCR_STEPS":["u1_0000"
+			,"u1_001E"
+			,"u1_003C"
+			,"u1_0064"]
+		,"SETUP_USED_PHASE":"u8_01"
+		,"SETUP_USE_ABS_POWER":"u8_00"
+		,"SETUP_USE_RCR":"u8_00"
+		,"SETUP_WALLBOX_IDS":["u8_01"
+			,"u8_02"
+			,"u8_03"
+			,"u8_04"]
+		,"SETUP_WALLBOX_SERIAL0":"st_"
+		,"SETUP_WALLBOX_SERIAL1":"st_"
+		,"SETUP_WALLBOX_SERIAL2":"st_"
+		,"SETUP_WALLBOX_SERIAL3":"st_"
+		,"SG_READY_CURR_MODE":"u8_01"
+		,"SG_READY_ENABLED":"u8_00"
+		,"SG_READY_ENABLE_OVERWRITE":"u8_00"
+		,"SG_READY_EN_MODE1":"u8_00"
+		,"SG_READY_OVERWRITE_RELAY":["u8_00"
+			,"u8_00"]
+		,"SG_READY_POWER_COMM":"u1_FFFF"
+		,"SG_READY_POWER_PROP":"u1_FFFF"
+		,"SG_READY_TIME":"u1_02D0"
+		,"TEST_GENERATION_METER":"u8_00"
+		,"TEST_HEATPUMP_METER":"u8_00"
+		,"TEST_SENEC_METER":"u8_00"
+	}
+	
+	
+	
+	
+	,"BMS":{
+		"ALARM_STATUS":["u1_0000"
+		,"u1_0000"
+		,"u1_0000"
+		,"u1_0000"]
+		,"BATTERY_STATUS":["u1_0000"
+		,"u1_0000"
+		,"u1_0000"
+		,"u1_0000"]
+		,"BL":["u1_2774"
+		,"u1_2774"
+		,"u1_2774"
+		,"u1_2774"]
+		,"BMS_READY_FLAG":"u8_01"
+		,"CHARGED_ENERGY":["u3_00A437A9"
+		,"u3_00AA92AB"
+		,"u3_00A3524F"
+		,"u3_00A4755E"]
+		,"CHARGE_CURRENT_LIMIT":["fl_41400000"
+		,"fl_41400000"
+		,"fl_41400000"
+		,"fl_41400000"]
+		,"COMMERRCOUNT":"u1_0000"
+		,"CURRENT":["fl_00000000"
+		,"fl_BCF5C28F"
+		,"fl_BCF5C28F"
+		,"fl_BCF5C28F"]
+		,"CYCLES":["u1_0003"
+			,"u1_0003"
+			,"u1_0003"
+			,"u1_0003"]
+		,"DERATING":"u8_00"
+		,"DISCHARGED_ENERGY":["u3_008A7386"
+		,"u3_008A755A"
+		,"u3_00919A02"
+		,"u3_009435A8"]
+		,"DISCHARGE_CURRENT_LIMIT":["fl_C1BF3333"
+		,"fl_C1BF3333"
+		,"fl_C1BF3333"
+		,"fl_C1BF3333"]
+		,"ERROR":"u8_00"
+		,"FAULTLINECOUNT":"u1_0000"
+		,"FW":["u1_2725"
+		,"u1_2725"
+		,"u1_2725"
+		,"u1_2725"]
+		,"HW_EXTENSION":["u1_0064"
+		,"u1_0064"
+		,"u1_0064"
+		,"u1_0064"]
+		,"HW_MAINBOARD":["u1_0065"
+		,"u1_0065"
+		,"u1_0065"
+		,"u1_0065"]
+		,"MANUFACTURER":"u8_02"
+		,"MAX_CELL_VOLTAGE":["u1_0D42"
+		,"u1_0D40"
+		,"u1_0D40"
+		,"u1_0D40"]
+		,"MAX_TEMP":"i1_0096"
+		,"MIN_CELL_VOLTAGE":["u1_0D33"
+		,"u1_0D30"
+		,"u1_0D31"
+		,"u1_0D32"]
+		,"MIN_TEMP":"i1_0078"
+		,"MODULES_CONFIGURED":"u8_04"
+		,"MODULE_COUNT":"u8_04"
+		,"NOM_CHARGEPOWER_MODULE":"fl_441C4000"
+		,"NOM_DISCHARGEPOWER_MODULE":"fl_449C4000"
+		,"NR_INSTALLED":"u8_04"
+		,"PROTOCOL":"u1_0000"
+		,"RECOVERLOCKED":"u8_00"
+		,"SERIAL":["st_"
+		,"st_"
+		,"st_"
+		,"st_"]
+		,"SN":["u3_0000E222"
+		,"u3_000F6141"
+		,"u3_000F6143"
+		,"u3_0000E220"]
+		,"SOC":["u1_0004"
+		,"u1_0000"
+		,"u1_0003"
+		,"u1_0009"]
+		,"SOH":["u8_63"
+		,"u8_63"
+		,"u8_63"
+		,"u8_63"]
+		,"STATUS":["u3_00000001"
+		,"u3_00000001"
+		,"u3_00000001"
+		,"u3_00000001"]
+		,"SYSTEM_SOC":"u1_001E"
+		,"TEMP_MAX":["i8_0F"
+		,"i8_0F"
+		,"i8_0F"
+		,"i8_0F"]
+		,"TEMP_MIN":["i8_0D"
+		,"i8_0C"
+		,"i8_0D"
+		,"i8_0D"]
+		,"VOLTAGE":["fl_423DB333"
+		,"fl_423D9062"
+		,"fl_423D9687"
+		,"fl_423D9EB8"]
+		,"WIZARD_ABORT":"u8_01"
+		,"WIZARD_CONFIRM":"u8_00"
+		,"WIZARD_DCCONNECT":"u1_0000"
+		,"WIZARD_START":"u8_00"
+		,"WIZARD_STATE":"u8_00"
+	}
+	
+	
+	
+	
+	
+	,"BAT1":{"CEI_LIMIT":"u1_3E0B"
+		,"ISLAND_ENABLE":"u8_01"
+		,"NSP2_FW":"u1_0000"
+		,"NSP_FW":"u1_0000"
+		,"RESET":"u8_00"
+		,"SELFTEST_ACT":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"SELFTEST_LIMIT":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"SELFTEST_OFF":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"SELFTEST_OVERALL_STATE":"u8_05"
+		,"SELFTEST_STATE":["u8_00"
+		,"u8_00"
+		,"u8_00"
+		,"u8_00"
+		,"u8_00"
+		,"u8_00"
+		,"u8_00"
+		,"u8_00"]
+		,"SELFTEST_STEP":["st_"
+		,"st_"
+		,"st_"
+		,"st_"
+		,"st_"
+		,"st_"
+		,"st_"
+		,"st_"]
+		,"SELFTEST_TIME":["u1_0000"
+		,"u1_0000"
+		,"u1_0000"
+		,"u1_0000"
+		,"u1_0000"
+		,"u1_0000"
+		,"u1_0000"
+		,"u1_0000"]
+		,"SERIAL":"st_765529FG007397070029"
+		,"SPARE_CAPACITY":"u8_00"
+		,"TRIG_ITALY_SELF":"u8_00"
+		,"TYPE":"u8_04"
+	}
+	
+	
+	
+	
+	
+	
+	
+	,"BAT1OBJ1":{"COMM":"u8_00"
+		,"ERROR":"u3_00000000"
+		,"I_DC":"fl_BCA3D70A"
+		,"P":"i1_0000"
+		,"Q":"i1_0000"
+		,"S":"i1_0000"
+		,"STATE":"u3_00000110"
+		,"SW_VERSION":"u3_030A0032"
+		,"SW_VERSION2":"u3_03050050"
+		,"SW_VERSION3":"u3_040B0001"
+		,"TEMP1":"u1_0019"
+		,"TEMP2":"u1_001C"
+		,"TEMP3":"u1_0000"
+		,"TEMP4":"u1_0000"
+		,"TEMP5":"u1_0000"
+		,"U_DC":"fl_423D8A3D"
+	}
+	,"BAT1OBJ2":{"OBJECT_NOT_FOUND":""}
+	,"BAT1OBJ2":{"OBJECT_NOT_FOUND":""}
+	,"BAT1OBJ3":{"OBJECT_NOT_FOUND":""}
+	,"BAT1OBJ4":{"OBJECT_NOT_FOUND":""}
+	
+	
+	
+	
+	
+	,"PWR_UNIT":{
+		"ADRESS":["u8_00"
+			,"u8_00"
+			,"u8_00"
+			,"u8_00"
+			,"u8_00"
+			,"u8_00"]
+		,"CONNPWR":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"CONNPWR_1":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"CONNPWR_2":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"CONNPWR_3":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"CURRENTTEMP_MAX":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"CURRENTTEMP_MAX_HW":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"CURRENTTEMP_MIN":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"CURRENTTEMP_MIN_HW":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"ENFLURI":["u8_00"
+		,"u8_00"
+		,"u8_00"
+		,"u8_00"
+		,"u8_00"
+		,"u8_00"]
+		,"FW_VER":["u1_0000"
+		,"u1_0000"
+		,"u1_0000"
+		,"u1_0000"
+		,"u1_0000"
+		,"u1_0000"]
+		,"HW_REV":["u1_0000"
+		,"u1_0000"
+		,"u1_0000"
+		,"u1_0000"
+		,"u1_0000"
+		,"u1_0000"]
+		,"POWER":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"POWER_L1":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"POWER_L2":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"POWER_L3":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"PU_MISSING":"u8_01"
+		,"REQ_POWER":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"SERIAL":["st_"
+		,"st_"
+		,"st_"
+		,"st_"
+		,"st_"
+		,"st_"]
+		,"STATUS":["u3_00000000"
+		,"u3_00000001"
+		,"u3_00000002"
+		,"u3_00000003"
+		,"u3_00000004"
+		,"u3_00000005"]
+		,"TEMPMAX":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"TEMPMIN":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"TEMPTARGET":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"TEMP_COUNT":["u1_0000"
+		,"u1_0000"
+		,"u1_0000"
+		,"u1_0000"
+		,"u1_0000"
+		,"u1_0000"]
+		,"TEMP_LIMIT_LOWER":"fl_00000000"
+		,"TEMP_LIMIT_UPPER":"fl_42C80000"
+		,"TYPE":["u8_00"
+		,"u8_00"
+		,"u8_00"
+		,"u8_00"
+		,"u8_00"
+		,"u8_00"]
+		,"WATERVOL":["u1_0000"
+		,"u1_0000"
+		,"u1_0000"
+		,"u1_0000"
+		,"u1_0000"
+		,"u1_0000"]
+			}
+
+
+
+
+	,"PV1":{
+		"ERROR_STATE_INT":["u3_00000000"
+		,"u3_00000000"]
+		,"INTERNAL_INV_ERROR_TEXT":["st_"
+		,"st_"]
+		,"INTERNAL_INV_ERR_STATE_VALID":["u8_01"
+		,"u8_01"]
+		,"INTERNAL_INV_STATE":["u8_02"
+		,"u8_02"]
+		,"INTERNAL_MD_AVAIL":["u8_01"
+		,"u8_01"]
+		,"INTERNAL_MD_MANUFACTURER":["st_Senec"
+		,"st_Senec"]
+		,"INTERNAL_MD_MODEL":["st_V3 LV"
+		,"st_V3 HV"]
+		,"INTERNAL_MD_SERIAL":["st_765529FG007397070029"
+		,"st_765856FG007401820031"]
+		,"INTERNAL_MD_VERSION":["st_HMI: 3.10.50 PU: 3.5.80 BDC: 4.11.1"
+		,"st_HMI: 3.11.20 PU: 3.6.1"]
+		,"INTERNAL_PV_AVAIL":"u8_02"
+		,"INV_MODEL":["st_"
+		,"st_"
+		,"st_END_OF_ARRAY"]
+		,"INV_SERIAL":["st_"
+		,"st_"
+		,"st_END_OF_ARRAY"]
+		,"INV_VERSIONS":["st_HMI: 3.10.50 PU: 3.5.80"
+		,"st_HMI: 3.11.20 PU: 3.6.1"
+		,"st_END_OF_ARRAY"]
+		,"MPP_AVAIL":"u8_03"
+		,"MPP_CUR":["fl_3C9BA5E4"
+		,"fl_3E1EB852"
+		,"fl_3E851EB9"]
+		,"MPP_POWER":["fl_3F62D0E6"
+		,"fl_41E13334"
+		,"fl_42D325E4"]
+		,"MPP_VOL":["fl_429F0EDA"
+		,"fl_434A04DE"
+		,"fl_43CC18F6"]
+		,"POWER_RATIO":"u3_00000064"
+		,"POWER_RATIO_L1":"u3_00000064"
+		,"POWER_RATIO_L2":"u3_00000064"
+		,"POWER_RATIO_L3":"u3_00000064"
+		,"PV_MISSING":"u8_03"
+		,"P_TOTAL":"fl_C3069C29"
+		,"STATE_INT":["u3_00000110"
+		,"u3_00000110"]
+		,"TYPE":"u8_A0"
+	},
+
+
+
+
+	
+	"FACTORY":{
+		"AUX_TYPE":"u8_03"
+		,"BAT_TYPE":"u8_04"
+		,"BEH_FLAGS":"u8_01"
+		,"CELL_TYPE":"u8_05"
+		,"COUNTRY":"u8_00"
+		,"DESIGN_CAPACITY":"fl_461C4000"
+		,"DEVICE_ID":"st_2293767859391748892678969"
+		,"FAC_SANITY":"u8_01"
+		,"MAX_CHARGE_POWER_DC":"fl_451C4000"
+		,"MAX_DISCHARGE_POWER_DC":"fl_456A6000"
+		,"PM_TYPE":"u8_01"
+		,"SYS_TYPE":"u8_12"}
+		,
+
+
+
+
+	"GRIDCONFIG":{
+		"AU_FIXED_FAC":"fl_3F800000"
+		,"AU_GRID_CODE":"u1_0004"
+		,"AU_P_RAMP_CH":"fl_418547AE"
+		,"AU_P_RAMP_DI":"fl_418547AE"
+		,"AU_RESP_MODE":"u1_000F"
+		,"AU_SOFT_RAMP_EN":"u8_01"
+		,"AU_TARGET_TY":"u1_0000"
+		,"AU_VRR_MAX":["u1_00CF"
+		,"u1_00E6"
+		,"u1_00FF"
+		,"u1_0109"]
+		,"AU_VRR_MIN":["u1_00CF"
+		,"u1_00D8"
+		,"u1_00EB"
+		,"u1_00F4"]
+		,"AU_VVAR_PERCENTAGE":["i8_1E"
+		,"i8_00"
+		,"i8_00"
+		,"i8_E2"]
+		,"AU_VVAR_P_MAX":["i8_3C"
+		,"i8_00"
+		,"i8_00"
+		,"i8_00"]
+		,"AU_VVAR_P_MIN":["i8_00"
+		,"i8_00"
+		,"i8_00"
+		,"i8_C4"]
+		,"AU_VVAR_VOLTAGE":["u1_00CF"
+		,"u1_00DC"
+		,"u1_00FA"
+		,"u1_0109"]
+		,"AU_VWC_VOLTAGE":["u1_00CF"
+		,"u1_00DC"
+		,"u1_00FA"
+		,"u1_0109"]
+		,"AU_VWD_VOLTAGE":["u1_00CF"
+		,"u1_00DC"
+		,"u1_00FA"
+		,"u1_0109"]
+		,"CEI_COS_PHI":"fl_3F800000"
+		,"CEI_COS_PHI_ENABLE":"u1_0000"
+		,"CEI_CPHI_LOIN":"u1_0069"
+		,"CEI_CPHI_LOUT":"u1_0064"
+		,"CEI_FREQ_MAX":"u1_C3B4"
+		,"CEI_FREQ_MIN":"u1_C2EC"
+		,"CEI_REC_TIME":"u1_012C"
+		,"CEI_RED_DROP":"u1_0018"
+		,"CEI_SEGNALE_ESTERNO":"u8_00"
+		,"CEI_STAB_AC_DE":"u1_0000"
+		,"CEI_STAB_LO_CO":"u1_BFCC"
+		,"CEI_STAB_LO_TH":"u1_C288"
+		,"CEI_STAB_UP_CO":"u1_C92C"
+		,"CEI_STAB_UP_TH":"u1_C418"
+		,"CEI_STAB_VOL_TH":"u1_006E"
+		,"PWRCFG_COS_POINT1":"fl_3F800000"
+		,"PWRCFG_COS_POINT3":"fl_3F666666"
+		,"PWRCFG_COS_POINT_2A":"fl_3F733333"
+		,"PWRCFG_COS_POINT_2B":"fl_42480000"
+		,"PWRCFG_USE_COS_PHI_CURVE":"u8_00"
+		,"PWRCFG_USE_MAX_PWR_SKEW":"u8_01"
+		,"VDECOSPHITIME":"u1_000A"
+		,"VDEFIXEDFAC":"fl_3F800000"
+		,"VDEOVERFREQDROOP":"u1_0005"
+		,"VDEOVERFREQLIMIT":"fl_4248CCCD"
+		,"VDERECOVERTIME":"u1_000A"
+		,"VDETARGETTY":"u1_0000"
+		,"VDEUNDERFREQDROOP":"u1_0002"
+		,"VDEURMSMAX10":"u1_006E"
+		,"VDE_FREQDROPPROT":"fl_423E0000"
+		,"VDE_FREQDROPPROTDELAY":"fl_3E4CCCCD"
+		,"VDE_FREQRISEPROT":"fl_424E0000"
+		,"VDE_FREQRISEPROTDELAY":"fl_3E4CCCCD"
+		,"VDE_UNDERFREQLIMIT":"fl_42473333"
+		,"VDE_VOLTDROPPROT":"fl_42340000"
+		,"VDE_VOLTDROPPROTAVG":"fl_42A00000"
+		,"VDE_VOLTDROPPROTAVGDELAY":"fl_40400000"
+		,"VDE_VOLTDROPPROTDELAY":"fl_3E99999A"
+		,"VDE_VOLTRISEPROT":"fl_42FA0000"
+		,"VDE_VOLTRISEPROTAVG":"fl_42DC0000"
+		,"VDE_VOLTRISEPROTAVGDELAY":"fl_44160000"
+		,"VDE_VOLTRISEPROTDELAY":"fl_3DCCCCCD"
+	
+	}, 
+	
+
+	"PM1OBJ1":{
+		"ADR":"u8_01"
+		,"ENABLED":"u8_01"
+		,"FREQ":"fl_42480A3D"
+		,"I_AC":[
+			"fl_3FD1EB85"
+			,"fl_3FE28F5C"
+			,"fl_3FC3D70A"]
+		,"P_AC":[
+			"fl_433068F6"
+			,"fl_C3A567AE"
+			,"fl_431A6E14"]
+		,"P_TOTAL":"fl_3CA3D70A"
+		,"U_AC":[
+			"fl_436A199A"
+			,"fl_4369199A"
+			,"fl_4368E667"]
+	}
+	
+	
+	,"PM1OBJ2":{"ADR":"u8_02"
+		,"ENABLED":"u8_00"
+		,"FREQ":"fl_00000000"
+		,"I_AC":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"P_AC":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		,"P_TOTAL":"fl_00000000"
+		,"U_AC":["fl_00000000"
+		,"fl_00000000"
+		,"fl_00000000"]
+		}
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.ess.sennec.home[Source Code icon:github[]]
+
+
+
