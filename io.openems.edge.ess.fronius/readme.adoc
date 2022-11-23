@@ -1,0 +1,19 @@
+= Fronius GEN24
+
+Implemented Natures::
+- SymmetricEss
+- ManagedSymmetricEss
+- AsymmetricEss
+- ManagedAsymmetricEss
+- SinglePhaseEss
+- ManagedSinglePhaseEss
+
+
+== Important Note
+
+Fronius GEN24 can NOT be used with existing OpenEMS controllers. It can charge and discharge an attached battery. 
+But due to a BUG in the fronius implementation it can not switch from charging to discharging without goint to 0 for a few seconds.
+ 
+
+
+https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.ess.sma[Source Code icon:github[]]
