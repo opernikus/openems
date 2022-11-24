@@ -1,0 +1,13 @@
+= Buderus Logaplus Heatpump
+
+implementation of the Buderus Logaplus WSW196-i Heatpump (read only, access via REST api)
+
+
+Legende::
+
+* HC1 = Heating Circuit1
+* HS = HeatSource = Wärmepumpe?
+* DHW1 = Warmwasser
+
+NOTE: *The configuration of the Buderus heatpump component requires an `apikey`. This has to be acquired from Buderus. Without the apikey it is not possible to establish a communication with the hardware device.**
+

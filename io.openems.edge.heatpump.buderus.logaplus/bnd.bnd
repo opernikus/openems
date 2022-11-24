@@ -1,0 +1,14 @@
+Bundle-Name: Buderus Logaplus Heatpump
+Bundle-License: No license - DO NOT PUBLISH - This driver needs an external tool which breaks buderus encryption
+Bundle-Version: 1.0.0.${tstamp}
+
+-buildpath: \
+	${buildpath},\
+	io.openems.common,\
+	io.openems.edge.common,\
+	io.openems.edge.ess.api,\
+	io.openems.edge.meter.api,\
+	io.openems.edge.thermometer.api
+
+-testpath: \
+	${testpath}
