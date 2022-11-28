@@ -1,7 +1,5 @@
 package io.openems.edge.io.acthor;
 
-import java.util.Optional;
-
 import org.osgi.service.cm.ConfigurationAdmin;
 import org.osgi.service.component.ComponentContext;
 import org.osgi.service.component.annotations.Activate;
@@ -111,7 +109,7 @@ public class AcThorImpl extends AbstractOpenemsModbusComponent implements AcThor
 		switch (event.getTopic()) {
 		case EdgeEventConstants.TOPIC_CYCLE_BEFORE_PROCESS_IMAGE:
 			try {
-				Integer calculatedPower = this.calculatePower();
+				var calculatedPower = this.calculatePower();
 				this.setWritePower(calculatedPower);
 			} catch (OpenemsNamedException e) {
 				this.logError(this.log, "Unable to set power ex:" + e.getMessage());
@@ -124,10 +122,10 @@ public class AcThorImpl extends AbstractOpenemsModbusComponent implements AcThor
 	}
 
 	private Integer calculatePower() {
-		Optional<Boolean> out1 = this.getOut1WriteChannel().getNextWriteValue(); // TODO Use getNextWriteValueAndReset
-		Optional<Boolean> out2 = this.getOut2WriteChannel().getNextWriteValue();
-		Optional<Boolean> out3 = this.getOut3WriteChannel().getNextWriteValue();
-		Integer power = 0;
+		var out1 = this.getOut1WriteChannel().getNextWriteValue(); 
+		var out2 = this.getOut2WriteChannel().getNextWriteValue();
+		var out3 = this.getOut3WriteChannel().getNextWriteValue();
+		var power = 0;
 		if (out1.orElse(false)) {
 			power += this.config.powerStep();
 		}
@@ -143,7 +141,8 @@ public class AcThorImpl extends AbstractOpenemsModbusComponent implements AcThor
 	@Override
 	protected ModbusProtocol defineModbusProtocol() throws OpenemsException {
 		return new ModbusProtocol(this,
-				new FC3ReadRegistersTask(1000, Priority.HIGH, m(AcThor.ChannelId.POWER, new UnsignedWordElement(1000)),
+				new FC3ReadRegistersTask(1000, Priority.HIGH, 
+						m(AcThor.ChannelId.POWER, new UnsignedWordElement(1000)),
 						m(AcThor.ChannelId.TEMP_1, new UnsignedWordElement(1001)),
 						m(AcThor.ChannelId.H_W_1_MAX, new UnsignedWordElement(1002)),
 						m(AcThor.ChannelId.STATUS, new UnsignedWordElement(1003)),

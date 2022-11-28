@@ -117,7 +117,7 @@ public interface AcThor extends OpenemsComponent {
 		GRID_PART_OF_DEVICE_POWER(Doc.of(OpenemsType.INTEGER).unit(Unit.WATT).accessMode(AccessMode.READ_ONLY)
 				.persistencePriority(PersistencePriority.LOW).text("Grid part of device power")),
 
-		// Dummy channels to make it IO
+		// Read-Write channels for digital output
 		OUT_1(new BooleanDoc().accessMode(AccessMode.READ_WRITE)),
 		OUT_2(new BooleanDoc().accessMode(AccessMode.READ_WRITE)),
 		OUT_3(new BooleanDoc().accessMode(AccessMode.READ_WRITE)),;
