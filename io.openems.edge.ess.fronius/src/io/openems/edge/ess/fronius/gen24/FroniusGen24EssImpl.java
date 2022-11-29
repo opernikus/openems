@@ -142,25 +142,6 @@ public class FroniusGen24EssImpl extends AbstractOpenemsSunSpecComponent
 		// neg Werte -> Ladung
 		// pos Werte -> Entladung
 
-		// TODO control ramp times
-//		DefaultSunSpecModel.S124.IN_OUT_W_RTE_RVRT_TMS
-//		DefaultSunSpecModel.S124.IN_OUT_W_RTE_RMP_TMS
-//		DefaultSunSpecModel.S124.IN_OUT_W_RTE_WIN_TMS
-
-//		S124StorAval -> 		CAPACITY(Doc.of(OpenemsType.INTEGER) //
-//		ACTIVE_POWER(Doc.of(OpenemsType.INTEGER) //
-//		REACTIVE_POWER(Doc.of(OpenemsType.INTEGER) //
-
-//TODO 				
-//		ACTIVE_CHARGE_ENERGY(Doc.of(OpenemsType.LONG) //
-//		ACTIVE_DISCHARGE_ENERGY(Doc.of(OpenemsType.LONG) //
-
-//Unused				
-//		MIN_CELL_VOLTAGE(Doc.of(OpenemsType.INTEGER) //
-//		MAX_CELL_VOLTAGE(Doc.of(OpenemsType.INTEGER) //
-//		MIN_CELL_TEMPERATURE(Doc.of(OpenemsType.INTEGER) //
-//		MAX_CELL_TEMPERATURE(Doc.of(OpenemsType.INTEGER) //
-
 		try {
 			this.addPowerConstraint("SetReactivePowerGreaterOrEquals", Phase.ALL, Pwr.ACTIVE,
 					Relationship.GREATER_OR_EQUALS, -10);
@@ -334,10 +315,10 @@ public class FroniusGen24EssImpl extends AbstractOpenemsSunSpecComponent
 						if (actDischarge == 0) {
 							if (actCharge != 0) {
 								activeChargePowerPercentageChannel.setNextWriteValue(0.0f);
-								break;
 							}
 						}
 					}
+					break;
 				}
 				case DecreaseDischarge: {
 					if (activeChargePowerPercentageChannel.value().isDefined()) {
@@ -384,7 +365,7 @@ public class FroniusGen24EssImpl extends AbstractOpenemsSunSpecComponent
 					}
 					break;
 				}
-				}// Switch
+				} // Switch
 
 				break;
 			case ClosingPowerWindow:
@@ -432,22 +413,10 @@ public class FroniusGen24EssImpl extends AbstractOpenemsSunSpecComponent
 
 	@Override
 	public String debugLog() {
-		Float actCharge = 99999.9f;
-		Float actDischarge = 99999.9f;
-		try {
-			FloatWriteChannel activeChargePowerPercentageChannel = this
-					.getSunSpecChannelOrError(DefaultSunSpecModel.S124.IN_W_RTE);
-			FloatWriteChannel activeDischargePowerPercentageChannel = this
-					.getSunSpecChannelOrError(DefaultSunSpecModel.S124.OUT_W_RTE);
-			actCharge = activeChargePowerPercentageChannel.value().get();
-			actDischarge = activeDischargePowerPercentageChannel.value().get();
-		} catch (Exception e) {
-		}
-		;
 		return "SoC:" + this.getSoc().asString() //
 				+ "|Req:" + this.getDebugSetActivePower().asString() //
 				+ "|L:" + this.getActivePower().asString() //
-				+ "|IN_W_RTE: " + actCharge + "|OUT_W_RTE: " + actDischarge + "|Allowed:"
+				+ "|Allowed:"
 				+ this.channel(ManagedSymmetricEss.ChannelId.ALLOWED_CHARGE_POWER).value().asStringWithoutUnit() + ";"
 				+ this.channel(ManagedSymmetricEss.ChannelId.ALLOWED_DISCHARGE_POWER).value().asString() //
 				+ "|" + this.getGridModeChannel().value().asOptionString();

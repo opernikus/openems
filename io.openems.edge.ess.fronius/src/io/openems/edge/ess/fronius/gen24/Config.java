@@ -3,7 +3,7 @@ package io.openems.edge.ess.fronius.gen24;
 import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 
-@ObjectClassDefinition( //
+@ObjectClassDefinition(//
 		name = "ESS Fronius GEN24", //
 		description = "Implements the Fronius GEN24 hybrid pv inverter as an energy storage system.")
 @interface Config {
